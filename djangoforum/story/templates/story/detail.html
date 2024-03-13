@@ -3,6 +3,12 @@
 {% block title %} {{story.title}} {% endblock %}
 
 {% block content%}
+<style>
+    .button{
+        text-shadow: 2px 2px 5px black;
+    }
+</style>
+
 <div class="py-6 bg-teal-500 flex">
     <div>
         <a href="{% url 'story:vote' story.id %}?redirect_page=detail">
@@ -43,13 +49,16 @@
     <form method="post" action=".">
         {% csrf_token %}
         
-        {{ form.as_p}}
+        <div style="margin-left: 10px;">
+            Text : {{ form.text}}
+        </div>
+        
 
-        <button class="mt-5 p-1 rounded-sm border-gray-500">Submit</button>
+        <button class="mt-5 p-1 rounded-sm button" style="margin-bottom: 10px; margin-left: 10px; background-color: rgb(5, 169, 112); color: white;">Submit</button>
     </form>
 </div>
 
-<div class="bg-gray-200 font-bold">
+<div class="bg-gray-200 font-bold" style="margin-top: 10px;">
     {% for comment in story.comments.all %}
         <div class="p-2">
             <p class="text-gray-500">

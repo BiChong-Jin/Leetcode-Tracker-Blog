@@ -1,18 +1,34 @@
 {% extends 'core/base.html' %}
 
-{% block title %} Create Story {% endblock %}
+{% block title %} Create Content {% endblock %}
 
 {% block content%}
+    <style>
+        .button{
+            text-shadow: 2px 2px 5px black;
+        }
+    </style>
+
     <div class="p-2 bg-gray-200 font-bold">
         <h1>
-           Create Story
+           Create Content
         </h1>
         <form method="post" action=".">
          {% csrf_token %}
          
-         {{form.as_p}}
+         <!-- {{form.as_p}} -->
 
-         <button class="mt-5 p-1 rounded-sm border-gray-500">Submit</button>
+        <div style="margin-bottom: 10px;">
+            Title : {{ form.title }}
+        </div>
+        <div style="margin-bottom: 10px;">
+            Url : {{ form.url }}
+        </div>
+        <div style="margin-bottom: 10px;">
+            Text : {{ form.text }}
+        </div>
+
+         <button class="mt-5 p-1 rounded-sm button" style="background-color: rgb(5, 169, 112); color: white;">Submit</button>
         </form>
     </div>
 
