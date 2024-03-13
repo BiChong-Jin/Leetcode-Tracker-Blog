@@ -1,0 +1,41 @@
+{% extends 'core/base.html' %}
+
+{% block title %} New {% endblock %}
+
+{% block content%}
+{% for stories in stories %}
+    <div class="py-6 bg-teal-500 flex">
+        <div class="flex">
+            <p>{{ forloop.counter }}.</p>
+
+            <a a href="{% url 'story:vote' stories.id %}?redirect_page=core:new">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 18.75 7.5-7.5 7.5 7.5" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 7.5-7.5 7.5 7.5" />
+                </svg>          
+            </a>
+        </div>
+        <div>
+            <p>
+                <a href="{% url 'story:detail' stories.id %}">{{stories.title}} </a>
+
+                {% if stories.url %}
+                    <a class="text-gray-500" href="{{stories.url}}">{{stories.url}}</a>
+                {% endif %} 
+            </p>
+        
+            <div class="flex text-gray-500">
+                <p>
+                   {{ stories.votes.count}} points by {{stories.created_by.username}} {{stories.created_at|timesince }} ago
+                </p>
+                <p class="px-3"> | 
+
+                </p>
+                <p>
+                    {{ stories.comments.count }} comments
+                </p>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+{% endblock %}

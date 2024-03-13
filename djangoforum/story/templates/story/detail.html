@@ -1,0 +1,67 @@
+{% extends 'core/base.html' %}
+
+{% block title %} {{story.title}} {% endblock %}
+
+{% block content%}
+<div class="py-6 bg-teal-500 flex">
+    <div>
+        <a href="{% url 'story:vote' story.id %}?redirect_page=detail">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 18.75 7.5-7.5 7.5 7.5" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 7.5-7.5 7.5 7.5" />
+            </svg>          
+        </a>
+    </div>
+    <div>
+        <p>
+            <a href="{% url 'story:detail' story.id %}">{{story.title}} </a>
+
+            {% if story.url %}
+                <a class="text-gray-500" href="{{story.url}}">{{story.url}}</a>
+            
+            {% elif story.text %}
+                <p> {{ story.text }} </p>
+            {% endif %}
+        </p>
+    
+        <div class="flex text-gray-500">
+            <p>
+                {{ story.votes.count}} points by {{story.created_by.username}} {{story.created_at|timesince }} ago
+            </p>
+            <p class="px-3"> | 
+
+            </p>
+            <p>
+                {{ story.comments.count }} comments
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="bg-gray-200 font-bold">
+
+    <form method="post" action=".">
+        {% csrf_token %}
+        
+        {{ form.as_p}}
+
+        <button class="mt-5 p-1 rounded-sm border-gray-500">Submit</button>
+    </form>
+</div>
+
+<div class="bg-gray-200 font-bold">
+    {% for comment in story.comments.all %}
+        <div class="p-2">
+            <p class="text-gray-500">
+                {{ comment.created_by.username}}
+                |
+                {{ comment.created_at|timesince}} ago
+            </p>
+
+            <p class="mt-2">
+                {{ comment.text }}
+            </p>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
