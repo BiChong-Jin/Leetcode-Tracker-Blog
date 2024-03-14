@@ -8,4 +8,6 @@ Main functionalities:
 
 Auth
 
-Create comment
+Create context/ comment
+
+Edit context/ comment
