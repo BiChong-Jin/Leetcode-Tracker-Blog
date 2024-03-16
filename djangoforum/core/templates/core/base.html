@@ -21,7 +21,12 @@
                     {% if request.user.is_authenticated %}
                         <a href="#">{{request.user.username}}</a>
                         <p class="px-2"> | </p>
-                        <a href="{% url 'core:logout' %}">Logout</a>
+<!--                         <a href="{% url 'core:logout' %}">Logout</a> -->
+                        <form action="{% url 'logout' %}" method="post">
+                            {% csrf_token %} 
+<!--                             csrf_token is very important to have as this is POST request -->
+                            <button type="submit">Logout</button> 
+                        </form>
                     {% else %}
                         <a href="{% url 'core:login' %}"> Login </a>
                         <p class="px-2"> | </p>
