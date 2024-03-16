@@ -45,17 +45,22 @@
 </div>
 
 <div class="bg-gray-200 font-bold">
+    {% if request.user.is_authenticated %}
+        <form method="post" action=".">
+            {% csrf_token %}
 
-    <form method="post" action=".">
-        {% csrf_token %}
-        
-        <div style="margin-left: 10px;">
-            Text : {{ form.text}}
-        </div>
-        
-
-        <button class="mt-5 p-1 rounded-sm button" style="margin-bottom: 10px; margin-left: 10px; background-color: rgb(5, 169, 112); color: white;">Submit</button>
-    </form>
+            {{ form.as_p }}
+                
+<!--             <div style="margin-left: 10px;">
+                Text : {{ form.text}}
+            </div> -->
+            
+    
+            <button class="mt-5 p-1 rounded-sm button" style="margin-bottom: 10px; margin-left: 10px; background-color: rgb(5, 169, 112); color: white;">Submit</button>
+        </form>
+    {% else %}
+        <p>You need to log in to submit a comment!</p>
+    {% endif %}
 </div>
 
 <div class="bg-gray-200 font-bold" style="margin-top: 10px;">
