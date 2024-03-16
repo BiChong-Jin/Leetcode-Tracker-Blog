@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-jam(*hd$dn5lo-m@z8nw@jke$2d*l%_mm2t3)c-%*$*_(5wfu!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [leetcode-dsa-tracker-blog.onrender.com]
+ALLOWED_HOSTS = [https://leetcode-dsa-tracker-blog.onrender.com]
 
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
