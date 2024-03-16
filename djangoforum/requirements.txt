@@ -5,8 +5,6 @@ bcrypt
 bidict
 blinker
 Brotli
-certifi
-channels
 charset-normalize
 click
 colorama
