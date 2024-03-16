@@ -4,8 +4,6 @@ asgiref
 bcrypt
 bidict
 blinker
-Brotli
-charset-normalize
 click
 colorama
 distlib
