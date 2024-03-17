@@ -75,9 +75,12 @@
                 {{ comment.created_at|timesince}} ago
             </p>
 
-            <p class="mt-2">
-                {{ comment.text|linebreaksbr }}
-            </p>
+            <pre>
+                <p class="mt-2">
+                    {{ comment.text|linebreaksbr }}
+                </p>
+            </pre>
+            
         </div>
     {% endfor %}
 </div>
