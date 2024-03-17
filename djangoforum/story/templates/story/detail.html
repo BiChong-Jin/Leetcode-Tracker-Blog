@@ -26,7 +26,7 @@
                 <a class="text-gray-500" href="{{story.url}}">{{story.url}}</a>
             
             {% elif story.text %}
-                <p> {{ story.text | linebreaksbr }} </p>
+                <p> {{ story.text|linebreaksbr }} </p>
             {% endif %}
         </p>
     
@@ -73,7 +73,7 @@
             </p>
 
             <p class="mt-2">
-                {{ comment.text }}
+                {{ comment.text|linebreaksbr }}
             </p>
         </div>
     {% endfor %}
