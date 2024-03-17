@@ -25,7 +25,7 @@
             {% if story.url %}
                 <a class="text-gray-500" href="{{story.url}}">{{story.url}}</a>
             
-            {% elif story.text %}
+            {% if story.text %}
                 <p> {{ story.text|linebreaksbr }} </p>
             {% endif %}
         </p>
