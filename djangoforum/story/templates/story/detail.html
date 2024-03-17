@@ -27,7 +27,9 @@
             {% endif %}
             
             {% if story.text %}
-                <p> {{ story.text|linebreaksbr }} </p>
+                <pre>
+                    <p> {{ story.text|linebreaksbr }} </p>
+                </pre>
             {% endif %}
         </p>
     
