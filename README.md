@@ -32,4 +32,4 @@ After created the .env file, do not forget to update your settings.py file. Addt
 
 2. About the Hosts:
 
-When you already deployed your django project to Render, you may face a `error 405 bad request`, after you updated the project into product mode, you have to edit the `ALLOWED_HOST` in the settings.py file. You can add your app's url on render, or you can just do `ALLOWED_HOST=['*']` to allow all.
+When you already deployed your django project to Render, you may face a `error 405 bad request`, after you updated the project into production mode, you have to edit the `ALLOWED_HOST` in the settings.py file. You can add your app's url on render, or you can just do `ALLOWED_HOST=['*']` to allow all.
